@@ -1,7 +1,7 @@
 # A1 - Piraten Karpen
 
-  * Author: < You name here >
-  * Email: < Your email here >
+  * Author: < Ashwin Unnithan >
+  * Email: < unnithaa@mcmaster.ca >
 
 ## Build and Execution
 
@@ -23,7 +23,11 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
  * Status: 
    * Pending (P), Started (S), Blocked (B), Done (D)
  * Definition of Done (DoD):
-   * < Your DoD goes here >
+   * < 
+      * Accepts the correct group of input/parameters/arguments (if any)
+      * Correctly processes and returns the assoicated output relevant to the progress of the game
+      * Clear of unnecessary bugs, errors and exceptions interfering with application or usage (gameplay)
+    >
 
 ### Backlog 
 
@@ -31,9 +35,11 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | :-:  |:-:  |---       | :-:     | :-:       | :-:       |
 | x   | F01 | Roll a dice |  S | 01/01/23 |  |
 | x   | F02 | Roll eight dices  |  B (F01) |   |
-| x   | F03 | Select how many games as command-line arg.  |  P  |   |
-| x   | F04 | end of game with three cranes | P | |
-| x   | F05 | Player keeping random dice at their turn | B (F02) | | 
-| x   | F06 | Score points: 3-of-a-kind | B (F04) | | 
+| x   | F03 | Only 42 games are to be played during simulation  |  P  |   |
+| x   | F04 | Player keeps the random dice value from their turn | B (F02) | | 
+| x   | F05 | Player rerolls until 3 skulls are reached and turn ends | B (F04) | |
+| x   | F06 | Only two players are playing the game  |  B (F02, F04) |   |
+| x   | F07 | Score points: Diamond and Gold coins | B (F05) | | 
+| x   | F08 | Display win percentage of each player at the end of simulation | B (F07) | | 
 | ... | ... | ... |
 
