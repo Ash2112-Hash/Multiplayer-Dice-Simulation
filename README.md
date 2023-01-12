@@ -33,7 +33,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 
 | MVP? | Id  | Feature  | Status  |  Started  | Delivered |
 | :-:  |:-:  |---       | :-:     | :-:       | :-:       |
-| x   | F01 | Roll a dice |  S | 01/01/23 |  |
+| x   | F01 | Roll a dice | P | 01/11/23 |  |
 | x   | F02 | Roll eight dices  |  B (F01) |   |
 | x   | F03 | Only 42 games are to be played during simulation  |  P  |   |
 | x   | F04 | Player keeps the random dice value from their turn | B (F02) | | 
