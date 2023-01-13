@@ -4,3 +4,6 @@
 
 # 2. Updated the FO1 Status and Start Date - 2023/01/11
     * Updated the FO1 Status to Pending(P) and startdate
+
+# 3. Updated the README Backlog - 2023/01/13
+    * Updated the FO4 and FO7 status with a new criteria to match the new business logic
