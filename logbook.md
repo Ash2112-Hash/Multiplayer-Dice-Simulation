@@ -7,3 +7,8 @@
 
 # 3. Updated the README Backlog - 2023/01/13
     * Updated the FO4 and FO7 status with a new criteria to match the new business logic
+
+# 4. Finished F01 - 2023/01/13
+    * Finished F01: Roll a dice and removed boilerplate/debug code form Dice.java
+    * Updated the end date and status to Done of F01 within README backlog
+    

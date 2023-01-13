@@ -6,7 +6,7 @@ public class PiratenKarpen {
         System.out.println("Welcome to Piraten Karpen Simulator!");
         System.out.println("I'm rolling a dice");
         Dice myDice = new Dice();
-        System.out.println(myDice.roll());
+        System.out.println("Dice roll:" + myDice.roll());
         System.out.println("That's all folks!");
     }
     
