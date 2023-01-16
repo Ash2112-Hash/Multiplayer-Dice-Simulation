@@ -1,16 +1,21 @@
 package pk;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Dice {
 
-    public Faces roll() {
+    public Faces dice_value;
+
+    public void roll() {
         int howManyFaces = Faces.values().length;
-        //System.out.println("  (DEBUG) there are " + howManyFaces + " faces");
-        //System.out.println("  (DEBUG) " + Arrays.toString(Faces.values()));
-        
         Random bag = new Random();
-        return Faces.values()[bag.nextInt(howManyFaces)];
+        this.dice_value = Faces.values()[bag.nextInt(howManyFaces)];
+
     }
+
+    public Faces getDiceValue(){
+        return this.dice_value;
+    }
+
+
     
 }

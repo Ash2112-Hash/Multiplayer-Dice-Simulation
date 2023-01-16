@@ -34,7 +34,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | MVP? | Id  | Feature  | Status  |  Started  | Delivered |
 | :-:  |:-:  |---       | :-:     | :-:       | :-:       |
 | x   | F01 | Roll a dice | D | 01/11/2023 | 01/13/2023 |
-| x   | F02 | Roll eight dices  | S | 01/13/2023 |  |
+| x   | F02 | Roll eight dices  | S | 01/13/2023 | 01/14/2023 |
 | x   | F03 | Player randomly chooses which dice to keep from their turn | S | 01/15/2023 | |
 | x   | F04 | Player rerolls until 3 skulls are reached and turn ends | B (F03) | |
 | x   | F05 | Score points: Diamond and Gold coins computed by multiplying by 100 | B (F04) | | 

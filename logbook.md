@@ -15,3 +15,7 @@
 # 5. Updated the F02 Status and Start Date and Backlog - 2023/01/14
     * Updated the F02 Status to Started(S) and startdate in backlog
     * Rearranged the features ordering in README backlog to align better with development progress/timeline
+
+# 4. Finished F02 - 2023/01/14
+    * Finished F02: Roll 8 dices within Player.java and removed boilerplate/debug code form Dice.java 
+    * Updated the end date and status to Done of F02 within README backlog
