@@ -11,4 +11,7 @@
 # 4. Finished F01 - 2023/01/13
     * Finished F01: Roll a dice and removed boilerplate/debug code form Dice.java
     * Updated the end date and status to Done of F01 within README backlog
-    
+
+# 5. Updated the F02 Status and Start Date and Backlog - 2023/01/14
+    * Updated the F02 Status to Started(S) and startdate in backlog
+    * Rearranged the features ordering in README backlog to align better with development progress/timeline
