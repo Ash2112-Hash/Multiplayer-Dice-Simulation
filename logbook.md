@@ -32,4 +32,7 @@
     * Finished F03: user can randomly choose dice to keep (by rolling a random number of dice)
     * Feature implemented within Player.java and Game.java
     * Updated the end date and status to Done of F03 within README backlog
-    
+
+# 6. Updated the F04 Status and Start Date and Backlog - 2023/01/20
+    * Updated the F04 Status to Started(S) and startdate in backlog
+    * side note: .idea folder has been added to .gitignore
