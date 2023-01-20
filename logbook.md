@@ -22,4 +22,11 @@
 
 # 5. Updated the F03 Status and Start Date and Backlog - 2023/01/15
     * Updated the F03 Status to Started(S) and startdate in backlog
+
+# 6. Added Game.java File - 2023/01/17 : 2023/01/19 
+    * Added Game File in order to simulate major events and underlying game mechanics
+    * 2023/01/17 (created and added starter code)
+    * 2023/01/19 (added to git version control)
+
+
     
