@@ -1,17 +1,13 @@
-import pk.Dice;
 import pk.Player;
+import pk.Game;
 
 public class PiratenKarpen {
 
     public static void main(String[] args) {
-        System.out.println("Welcome to Piraten Karpen Simulator!");
-        System.out.println("I'm rolling a dice");
-        
-        Player p = new Player();
-        p.setHand();
-        p.displayHand();
-        
-        
+        Player user_1 = new Player("Joe");
+        Game PK_game = new Game(user_1);
+
+        PK_game.startGame();
 
     }
     

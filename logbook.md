@@ -25,8 +25,11 @@
 
 # 6. Added Game.java File - 2023/01/17 : 2023/01/19 
     * Added Game File in order to simulate major events and underlying game mechanics
-    * 2023/01/17 (created and added starter code)
+    * 2023/01/17 (created and added major methods within Game.java file) 
     * 2023/01/19 (added to git version control)
 
-
+# 7. Finished F03 - 2023/01/20 
+    * Finished F03: user can randomly choose dice to keep (by rolling a random number of dice)
+    * Feature implemented within Player.java and Game.java
+    * Updated the end date and status to Done of F03 within README backlog
     

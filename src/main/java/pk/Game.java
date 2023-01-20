@@ -10,4 +10,31 @@ public class Game {
     }
 
 
+    public void startGame(){
+        set_PlayerHands();
+        make_turn(player_1);
+    }
+
+
+    public void make_turn(Player player_obj){
+        System.out.println("Now, " + player_obj.getName() + " randomly re-rolls their dice!");
+        player_obj.RandRoll_Hand();
+        System.out.print("After re-rolling, " + player_obj.getName() + " 's current hand: ");
+        player_obj.displayCurrentHand();
+
+        /*Testing purposes
+        System.out.print("Rerolled Dice: ");
+        player_obj.displayReRolledDices();
+        */
+
+    }
+
+    public void set_PlayerHands(){
+        System.out.println("First, " + player_1.getName() + " rolls all eight dices. ");
+        player_1.setHand();
+        System.out.print("After rolling all 8, " + player_1.getName() + " 's current hand: ");
+        player_1.displayCurrentHand();
+        System.out.println("\n");
+
+        }
 }
