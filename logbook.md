@@ -36,3 +36,12 @@
 # 6. Updated the F04 Status and Start Date and Backlog - 2023/01/20
     * Updated the F04 Status to Started(S) and startdate in backlog
     * side note: .idea folder has been added to .gitignore
+
+# 7. Finished F04 - 2023/01/21
+    * Finished F04: player stops rerolling when 3 or more skulls are reached
+    * Feature implemented within Player.java and Game.java
+    * Updated the end date and status to Done of F04 within README backlog
+
+# 6. Updated the F05 Status and Start Date and Backlog - 2023/01/21
+    * Updated the F05 Status to Started(S) and startdate in backlog
+    
