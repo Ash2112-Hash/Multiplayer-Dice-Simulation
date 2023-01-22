@@ -6,6 +6,8 @@ public class Player {
     public Dice[] current_hand = new Dice[8];
     public ArrayList<Integer> reroll_handIndex = new ArrayList<Integer>();
     String name;
+    int turn_score = 0;
+    int total_score = 0;
 
     
 
@@ -18,11 +20,11 @@ public class Player {
         return this.name;
     }
 
-    
+
     public void setHand(){
         Roll8Dice();
     }
-    
+
 
     public void Roll8Dice(){
         for(int i = 0; i<8; i++){
@@ -85,15 +87,25 @@ public class Player {
         return continue_roll;
     }
 
-    /*Testing purposes
-    public void displayReRolledDices(){
-        for(int i = 0; i < reroll_handIndex.size(); i++){
-            System.out.print("Dice " + (reroll_handIndex.get(i)+1));
-            if(i < (reroll_handIndex.size() - 1)){
-                System.out.print(" ,");
+    public void Calculate_TurnScore(){
+        int current_score = 0;
+        for(Dice single_dice: this.current_hand){
+            if(single_dice.getDiceValue() == Faces.DIAMOND || single_dice.getDiceValue() == Faces.GOLD){
+                current_score += 100;
             }
         }
-        System.out.print("\n");
+
+
+        this.turn_score = current_score;
+
     }
-    */
+
+    public int getTurnScore() {
+        return this.turn_score;
+    }
+
+    public int getTotalScore() {
+        return this.total_score;
+    }
+
 }
