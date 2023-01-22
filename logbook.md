@@ -44,4 +44,12 @@
 
 # 6. Updated the F05 Status and Start Date and Backlog - 2023/01/21
     * Updated the F05 Status to Started(S) and startdate in backlog
-    
+
+# 7. Finished F05 - 2023/01/21
+    * Finished F05: player scores points based on rolls of diamond and gold
+    * Feature implemented within Player.java and Game.java
+    * Updated the end date and status to Done of F05 within README backlog
+    * Reworded feature description to be more precise and concise with respect to game
+
+# 8. Updated the F06 Status and Start Date and Backlog - 2023/01/21
+    * Updated the F06 Status to Started(S) and startdate in backlog

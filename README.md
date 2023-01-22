@@ -37,8 +37,8 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F02 | Roll eight dices  | D | 01/13/2023 | 01/14/2023 |
 | x   | F03 | Player randomly chooses which dice to keep from their turn | D | 01/15/2023 | 01/20/2023 |
 | x   | F04 | Player's turn ends when 3 skulls are reached | D | 01/20/2023 | 01/21/2023
-| x   | F05 | Score points: Diamond and Gold coins computed by multiplying by 100 | S | 01/21/2023 | 
-| x   | F06 | Only two players are playing the game  |  B (F03, F04, F05) | | |
+| x   | F05 | Score points: Diamond and Gold coins from roll | D | 01/21/2023 | 01/21/2023
+| x   | F06 | Only two players are playing the game  |  S  | 01/21/2023 | |
 | x   | F07 | Only 42 games are to be played during simulation  |  P  |   |
 | x   | F08 | Display win percentage of each player at the end of simulation | B (F05, F07) | | 
 | ... | ... | ... |
