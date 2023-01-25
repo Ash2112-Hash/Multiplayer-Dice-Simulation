@@ -1,13 +1,15 @@
 package pk;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Player {
     public Dice[] current_hand = new Dice[8];
-    public ArrayList<Integer> reroll_handIndex = new ArrayList<Integer>();
+    public List<Integer> reroll_handIndex = new ArrayList<Integer>();
     String name;
     int turn_score = 0;
     int total_score = 0;
+    boolean continue_roll = true;
 
     
 
@@ -74,17 +76,14 @@ public class Player {
 
     public boolean count_skulls(){
         int skull_count = 0;
-        boolean continue_roll = true;
         for(Dice single_dice: this.current_hand){
             if(single_dice.getDiceValue() == Faces.SKULL){
                 skull_count++;
             }
         }
 
-        if(skull_count >= 3){
-            continue_roll = false;
-        }
-        return continue_roll;
+        this.continue_roll = skull_count < 3;
+        return this.continue_roll;
     }
 
     public void Calculate_TurnScore(){
