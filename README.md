@@ -39,7 +39,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F04 | Player's turn ends when 3 skulls are reached | D | 01/20/2023 | 01/21/2023 |
 | x   | F05 | Score points: Diamond and Gold coins from roll | D | 01/21/2023 | 01/21/2023 |
 | x   | F06 | Only two players are playing the game  | D | 01/21/2023 | 01/25/2023 |
-| x   | F07 | Only 42 games are to be played during simulation  | S | 01/25/2023 |
+| x   | F07 | Only 42 games are to be played during simulation  | D | 01/25/2023 | 01/25/2023 |
 | x   | F08 | Display win percentage of each player at the end of simulation | B (F05, F07) | | 
 | ... | ... | ... |
 

@@ -16,27 +16,45 @@ public class Game {
 
 
     public void startGame(){
-        set_PlayerHands(player_1);
-        boolean cont; boolean cont2;
-
-        while(player_1.total_score < 6000 && player_2.total_score < 6000){
-            do {
-                cont = DecideTurn(player_1);
-            }while(cont);
-
-
-            set_PlayerHands(player_2);
-            do {
-                cont2 = DecideTurn(player_2);
-            }while(cont2);
-
+        for(int actual_count = 0; actual_count < 42; actual_count++) {
+            System.out.println("Starting Game: " + (actual_count+1));
             set_PlayerHands(player_1);
+            boolean player1_continueFactor;
+            boolean player2_continueFactor;
+
+            while (player_1.total_score < 6000 && player_2.total_score < 6000) {
+                do {
+                    player1_continueFactor = DecideTurn(player_1);
+                } while (player1_continueFactor);
+
+                if(player_1.total_score < 6000){
+                    set_PlayerHands(player_2);
+                }
+
+                else{
+                    break;
+                }
 
 
+                do {
+                    player2_continueFactor = DecideTurn(player_2);
+                } while (player2_continueFactor);
+
+                if(player_2.total_score < 6000){
+                    set_PlayerHands(player_1);
+                }
+
+                else{
+                    break;
+                }
+
+
+            }
+            End_Game();
+            System.out.println("End of Game: " + (actual_count+1) + "\n");
+            player_1.Reset_Stats();
+            player_2.Reset_Stats();
         }
-        End_Game();
-
-
     }
 
     public void make_turn(Player player_obj){

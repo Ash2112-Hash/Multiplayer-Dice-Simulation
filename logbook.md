@@ -62,3 +62,9 @@
 
 # 10. Updated the F07 Status and Start Date and Backlog - 2023/01/25
     * Updated the F07 Status to Started(S) and startdate in backlog
+
+
+# 11. Finished F07 - 2023/01/25
+    * Finished F07: 42 games are played during a simulation
+    * Feature implemented within Game.java
+    * Updated the end date and status to Done of F07 within README backlog

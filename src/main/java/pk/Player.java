@@ -11,6 +11,7 @@ public class Player {
     int total_score = 0;
     boolean continue_roll = true;
 
+
     
 
     public Player(String user_name){
@@ -97,6 +98,12 @@ public class Player {
 
         this.turn_score = current_score;
 
+    }
+
+    public void Reset_Stats(){
+        this.turn_score = 0;
+        this.total_score = 0;
+        this.continue_roll = true;
     }
 
     public int getTurnScore() {
