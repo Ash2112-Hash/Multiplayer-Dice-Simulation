@@ -59,3 +59,6 @@
     * Finished F06: Two players play the same game
     * Feature implemented within Game.java
     * Updated the end date and status to Done of F06 within README backlog
+
+# 10. Updated the F07 Status and Start Date and Backlog - 2023/01/25
+    * Updated the F07 Status to Started(S) and startdate in backlog
