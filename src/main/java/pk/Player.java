@@ -12,15 +12,8 @@ public class Player {
     boolean continue_roll = true;
 
 
-    
-
     public Player(String user_name){
         this.name = user_name;
-    }
-
-
-    public String getName(){
-        return this.name;
     }
 
 
@@ -64,25 +57,13 @@ public class Player {
 
     }
 
-    public void displayCurrentHand(){
-        for(int i = 0; i < this.current_hand.length; i++){
-            System.out.print(this.current_hand[i].getDiceValue());
-            if(i < (this.current_hand.length - 1)){
-                System.out.print(" ,");
-            }
-        }
-        System.out.print("\n");
-
-    }
-
-    public boolean count_skulls(){
+    public boolean are3Skulls(){
         int skull_count = 0;
         for(Dice single_dice: this.current_hand){
             if(single_dice.getDiceValue() == Faces.SKULL){
                 skull_count++;
             }
         }
-
         this.continue_roll = skull_count < 3;
         return this.continue_roll;
     }
@@ -94,8 +75,6 @@ public class Player {
                 current_score += 100;
             }
         }
-
-
         this.turn_score = current_score;
 
     }
@@ -106,12 +85,18 @@ public class Player {
         this.continue_roll = true;
     }
 
-    public int getTurnScore() {
-        return this.turn_score;
+    /* Used for debugging purposes!
+    public void displayCurrentHand(){
+        for(int i = 0; i < this.current_hand.length; i++){
+            System.out.print(this.current_hand[i].getDiceValue());
+            if(i < (this.current_hand.length - 1)){
+                System.out.print(" ,");
+            }
+        }
+        System.out.print("\n");
+
     }
 
-    public int getTotalScore() {
-        return this.total_score;
-    }
+     */
 
 }

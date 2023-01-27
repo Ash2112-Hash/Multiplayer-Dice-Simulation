@@ -72,3 +72,9 @@
 
 # 12. Updated the F08 Status and Start Date and Backlog - 2023/01/25
     * Updated the F08 Status to Started(S) and startdate in backlog
+
+
+# 13. Finished F08 - 2023/01/27
+    * Finished F08: Percentage of wins displayed
+    * Feature implemented within Game.java
+    * Updated the end date and status to Done of F08 within README backlog

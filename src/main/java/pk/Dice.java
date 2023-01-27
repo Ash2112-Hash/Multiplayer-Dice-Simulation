@@ -16,6 +16,5 @@ public class Dice {
         return this.dice_value;
     }
 
-
     
 }
