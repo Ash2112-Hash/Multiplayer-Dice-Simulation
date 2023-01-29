@@ -27,7 +27,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
       * Accepts the correct group of input/parameters/arguments (if any)
       * Correctly processes and returns the assoicated output relevant to the progress of the game
       * Clear of unnecessary bugs, errors and exceptions interfering with application or usage (gameplay)
-    >
+   * <
 
 ### Backlog 
 

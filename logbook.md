@@ -78,3 +78,8 @@
     * Finished F08: Percentage of wins displayed
     * Feature implemented within Game.java
     * Updated the end date and status to Done of F08 within README backlog
+
+# 14. Finished Step 2 - 2023/01/28
+    * Finished Step 2 of the project's progression!
+    * Added additional documentation to all components and files of the project
+
