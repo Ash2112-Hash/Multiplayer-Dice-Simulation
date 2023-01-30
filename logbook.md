@@ -64,6 +64,7 @@
     * Updated the F07 Status to Started(S) and startdate in backlog
 
 
+
 # 11. Finished F07 - 2023/01/25
     * Finished F07: 42 games are played during a simulation
     * Feature implemented within Game.java
@@ -83,3 +84,8 @@
     * Finished Step 2 of the project's progression!
     * Added additional documentation to all components and files of the project
 
+
+# 15. Added Strategy and ScoreBoard classes - 2023/01/29
+    * Added Strategy class in order to simulate the random roll strategy as a class for the Player and Game
+    * Added ScoreBoard class to log the wins of both players via a ScoreBoard object implmentation
+    
