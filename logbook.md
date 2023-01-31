@@ -89,3 +89,6 @@
     * Added Strategy class in order to simulate the random roll strategy as a class for the Player and Game
     * Added ScoreBoard class to log the wins of both players via a ScoreBoard object implmentation
     
+# 16. Added log4j2.xml File- 2023/01/31
+    * Added the log4j2.xml file under Resources subdirectory to log progression of game
+    
