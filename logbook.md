@@ -91,4 +91,9 @@
     
 # 16. Added log4j2.xml File- 2023/01/31
     * Added the log4j2.xml file under Resources subdirectory to log progression of game
+
+
+# 17. Added ProjectLog File- 2023/01/31
+    * Added the ProjectLog.java file to write messages to the log file via class implementation
+    * Also added instructions to activate trace mode within 'build and execution' section of README
     
