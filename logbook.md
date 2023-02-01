@@ -138,3 +138,6 @@
 
 # 27. Added new Features- 2023/02/01
     * Added new features to README backlog to represent enchanced business logic: SeaBattle cards and Card Deck
+
+# 28. Updated the F12 Status and Start Date and Backlog - 2023/02/01
+    * Updated the F12 Status to Started(S) and startdate in backlog
