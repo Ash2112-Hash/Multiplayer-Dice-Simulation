@@ -110,3 +110,7 @@
     * Feature established within Player.java
     * Updated the end date and status to Done of F09 within README backlog
     * Also updated configuration level of pom.xml
+
+
+# 21. Updated the F10 Status and Start Date and Backlog - 2023/01/31
+    * Updated the F10 Status to Started(S) and startdate in backlog
