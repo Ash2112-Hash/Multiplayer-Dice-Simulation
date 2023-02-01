@@ -1,5 +1,7 @@
 package pk;
-// Import random for implementing random functionality within players actions in the game
+
+import java.util.*;
+// Import required libraries/classes for Game.java
 
 // The Game class is used to establish the main aspects and underlying functionality of the game
 public class Game {
@@ -11,18 +13,22 @@ public class Game {
     // Associate two objects from the Player class (player 1 and 2) with the Game object
 
 
-    // Two double variables associated with player 1 and player 2's number of wins
     private static ScoreBoard pk_ScoreChart;
+    //Scoreboard object of Game class
+
+
+    protected static List<Card_Faces> card_deck;
+    // card_deck of game class
 
 
     // Constructor for Game object
     // Accepts 2 player objects as parameters for the game
+    // Will initialize the scoreboard and card deck
     public Game(Player p1, Player p2){
         player_1 = p1;
         player_2 = p2;
         pk_ScoreChart = new ScoreBoard(0, 0);
-        //System.out.println("Player 1: " + player_1.name);
-        //System.out.println("Player 2: " + player_2.name);
+        card_deck = Card.setCardDeck();
     }
 
 
@@ -51,6 +57,7 @@ public class Game {
                 do {
                     player1_continueFactor = game_strat.Implement_Strategy(player_1, player1_strategy);
                 } while (player1_continueFactor);
+                game_strat.SeaBattle(player_1);
 
                 if(player_1.total_score < 6000){
                     set_PlayerHand(player_2);
@@ -62,6 +69,7 @@ public class Game {
                 do {
                     player2_continueFactor = game_strat.Implement_Strategy(player_2, player2_strategy);
                 } while (player2_continueFactor);
+                game_strat.SeaBattle(player_2);
 
                 if(player_2.total_score < 6000){
                     set_PlayerHand(player_1);
@@ -90,6 +98,8 @@ public class Game {
     // If a player ends their turn (by choice or >=3 skulls), this method is responsible for rolling a new hand
     private void set_PlayerHand(Player player_obj){
         //System.out.println("Now, " + player_obj.name + " rolls a new hand!");
+
+        setCardEvent(player_obj);
         ProjectLog.insert_log_message((player_obj.name + " rolls a new hand!"), "trace");
         player_obj.Roll8Dice();
         ProjectLog.insert_log_message((player_obj.name + "'s new hand: ") + player_obj.getCurrentHand(), "trace");
@@ -98,6 +108,28 @@ public class Game {
 
         //DisplayStats(player_obj);
         //System.out.println("\n");
+    }
+
+    // set_PlayerHand method is used to draw a card and set up a card event
+    private void setCardEvent(Player player_obj){
+        // drawing the card
+        Collections.shuffle(card_deck);
+        player_obj.DrawCard(card_deck);
+        ProjectLog.insert_log_message(player_obj.name + " draws a card from the deck: " + player_obj.drawn_card, "trace");
+
+        // will generate a random corresponding amount of swords needed for sea-battle card
+        if(player_obj.drawn_card == Card_Faces.SEA_BATTLE){
+            List<Integer> sword_quantity = new ArrayList<Integer>(Arrays.asList(2, 3, 4));
+            int random_index = new Random().nextInt(sword_quantity.size());
+            int sword_count = sword_quantity.get(random_index);
+            ProjectLog.insert_log_message(player_obj.name + " has started a Sea Battle: " + sword_count + " Swords", "info");
+            Strategy.num_swords = sword_count;
+        }
+
+        // no event has been triggered
+        else{
+            ProjectLog.insert_log_message( "No event has been initiated!", "info");
+        }
     }
 
 

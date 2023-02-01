@@ -6,7 +6,7 @@ public class Card {
 
     public Card_Faces card_suite;
 
-    public List<Card_Faces> card_Collection = new ArrayList<Card_Faces>();
+    public static List<Card_Faces> card_Collection = new ArrayList<Card_Faces>();
 
     public Card(Card_Faces card_val) {
         this.card_suite = card_val;
@@ -19,7 +19,7 @@ public class Card {
 
     }
 
-    public static void setCardDeck(){
+    public static List<Card_Faces> setCardDeck(){
         List<Card_Faces> deck = new ArrayList<Card_Faces>();
 
         for(int i = 0; i < 6; i++){
@@ -29,6 +29,9 @@ public class Card {
         for(int y = 0; y < 29; y++){
             deck.add(Card_Faces.nop);
         }
+
+        card_Collection = deck;
+        return card_Collection;
 
     }
 

@@ -149,3 +149,8 @@
 
 # 30. Updated the F13 Status and Start Date and Backlog - 2023/02/01
     * Updated the F13 Status to Started(S) and startdate in backlog
+
+# 31. Finished F13 - 2023/02/01
+    * Finished F12: SEABATTLE cards and Card Deck
+    * Feature established within Strategy.java and Game.java
+    * Updated the end date and status to Done of F13 within README backlog

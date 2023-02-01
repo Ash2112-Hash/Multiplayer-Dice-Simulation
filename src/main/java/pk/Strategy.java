@@ -8,6 +8,10 @@ import java.util.*;
 // The Strategy class is used to set and determine the playable strategy of the player within the game
 public class Strategy {
 
+    private List<Card_Faces> deck = new ArrayList<Card_Faces>();
+
+    protected static int num_swords = 0;
+
 
     // Implement_Strategy() will implement a specific strategy for the player within the game
     // Accepts a player object and strategy as arguments
@@ -142,6 +146,47 @@ public class Strategy {
 
 
 
+
+    public void SeaBattle(Player player_obj){
+
+        if(player_obj.drawn_card == Card_Faces.SEA_BATTLE){
+            List<String> player_hand = new ArrayList(Arrays.asList(player_obj.getCurrentHand().split(" ,")));
+            int saber_frequency = Collections.frequency(player_hand, "SABER");
+
+            if(saber_frequency >= num_swords){
+                int bonus_points = 0;
+                switch(num_swords){
+                    case(2):
+                        bonus_points = 300;
+                        player_obj.total_score += bonus_points ;
+                        break;
+
+                    case(3):
+                        bonus_points = 500;
+                        player_obj.total_score += bonus_points;
+                        break;
+
+                    case(4):
+                        bonus_points = 1000;
+                        player_obj.total_score += bonus_points;
+                        break;
+                }
+
+                ProjectLog.insert_log_message(player_obj.name + " won Sea Battle with enough swords: bonus - " + bonus_points + " points", "warn");
+            }
+
+            else{
+                ProjectLog.insert_log_message(player_obj.name + " has lost Sea Battle with insufficient swords", "warn");
+            }
+
+            ProjectLog.insert_log_message(player_obj.name + "'s new total Score: " + player_obj.total_score + " points", "warn");
+        }
+
+
+    }
+
+
+
     // Check_RemainingDice() will determine if the player has enough dices to re-roll to maximize combos
     // If they have enough: return true. otherwise return false
     private boolean Check_RemainingDice(Player single_player){
@@ -172,4 +217,9 @@ public class Strategy {
         return result;
 
     }
+
+
+
+
+
 }

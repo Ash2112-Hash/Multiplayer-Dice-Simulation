@@ -4,7 +4,7 @@ package pk;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+import java.util.Random;
 
 
 // The Player class is used to construct, manage and manipulate Player objects within the game
@@ -13,6 +13,10 @@ public class Player {
     private final List<Dice> current_hand = new ArrayList<Dice>();
     // current_hand array represents the Dice objects in the Player object's possession
     // Array has a maximum size of 8 (8 dices)
+
+
+    protected Card_Faces drawn_card;
+    // represents the card of the player
 
     private final List<Integer> reroll_handIndex = new ArrayList<Integer>();
     // reroll_handIndex arrays is used to verify and store indices of rerolls
@@ -215,5 +219,12 @@ public class Player {
 
     }
 
+    protected void DrawCard(List<Card_Faces> deck){
+        int random_index = new Random().nextInt(deck.size());
+
+
+        this.drawn_card = deck.get(random_index);
+
+    }
 
 }
