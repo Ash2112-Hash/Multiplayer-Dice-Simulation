@@ -44,7 +44,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F07 | 42 games can be played during simulation  | D | 01/25/2023 | 01/25/2023 |
 | x   | F08 | Display win percentage of each player at end | D | 01/25/2023 | 01/27/2023 |
 | x   | F09 | Score Points: Dice Combinations | D | 01/31/2023 | 01/31/2023 |
-| x   | F10 | Player Strategy: choose dice to Maximize Combos  | S | 01/31/2023 |  |
+| x   | F10 | Player Strategy: choose dice to Maximize Combos  | D | 01/31/2023 | 02/01/2023 |
 | x   | F11 | Choose Strategy: command line arguments | B(F09, F10) | |  |
 | ... | ... | ... |
 

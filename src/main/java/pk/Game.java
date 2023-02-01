@@ -48,7 +48,7 @@ public class Game {
             // will continue the game for both players until either one of them have surpassed the score threshold
             while (player_1.total_score < 6000 && player_2.total_score < 6000) {
                 do {
-                    player1_continueFactor = game_strat.Random_DiceRolls(player_1);
+                    player1_continueFactor = game_strat.Maximize_Combos(player_1);
                 } while (player1_continueFactor);
 
                 if(player_1.total_score < 6000){

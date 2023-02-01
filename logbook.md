@@ -114,3 +114,8 @@
 
 # 21. Updated the F10 Status and Start Date and Backlog - 2023/01/31
     * Updated the F10 Status to Started(S) and startdate in backlog
+
+# 22. Finished F10 - 2023/02/01
+    * Finished F10: Player Combo Strategy
+    * Feature established within Player.java and Strategy.java
+    * Updated the end date and status to Done of F10 within README backlog

@@ -84,6 +84,45 @@ public class Player {
 
     }
 
+
+    public void ComboRoll(){
+        int old_frequency = 0;
+        int new_frequency = 0;
+        List<Faces> faces_Hand = new ArrayList<Faces>();
+        for (Dice each_dice : this.current_hand) {
+            faces_Hand.add(each_dice.getDiceValue());
+        }
+
+        Faces target_val = null;
+
+        for (Faces dice_val : faces_Hand) {
+            if (dice_val != Faces.SKULL) {
+                new_frequency = Collections.frequency(faces_Hand, dice_val);
+
+                if (old_frequency < new_frequency) {
+                    old_frequency = new_frequency;
+                    target_val = dice_val;
+
+                    if(old_frequency == 6 || old_frequency == 7){
+                        ProjectLog.insert_log_message("Check hand", "debug");
+                    }
+
+                }
+
+
+            }
+        }
+        //System.out.println(target_val + " " + old_frequency);
+
+        for(Dice single_dice: this.current_hand){
+            if((single_dice.getDiceValue() != target_val) && (single_dice.getDiceValue() != Faces.SKULL)){
+                single_dice.roll();
+            }
+        }
+
+    }
+
+
     // are3Skulls method will verify if 3 or more skulls are present within Player's current hand
     // If there are less than 3 skulls, continue_roll factor is returned as false
     // else, continue_roll factor is returned as true
@@ -104,16 +143,6 @@ public class Player {
         int riches_score = Find_DiamondGoldDice();
         int combo_score = Find_ComboDice();
         this.turn_score = (combo_score + riches_score);
-
-        /*
-        int current_score = 0;
-        for(Dice single_dice: this.current_hand){
-            if(single_dice.getDiceValue() == Faces.DIAMOND || single_dice.getDiceValue() == Faces.GOLD){
-                current_score += 100;
-            }
-        }
-        this.turn_score = current_score;
-        */
     }
 
 
@@ -148,8 +177,8 @@ public class Player {
 
             switch (combos_num) {
                 case 3 -> score += 100;
-                case 4 -> score += 400;
-                case 5 -> score += 400;
+                case 4 -> score += 200;
+                case 5 -> score += 500;
                 case 6 -> score += 1000;
                 case 7 -> score += 2000;
                 case 8 -> score += 4000;
@@ -172,6 +201,7 @@ public class Player {
     // getCurrentHand will allow for the player's current dice hand to be returned as a String (respecting encapsulation)
     public String getCurrentHand() {
         StringBuilder player_hand = new StringBuilder();
+
         for (int i = 0; i < this.current_hand.size(); i++) {
             player_hand.append(this.current_hand.get(i).getDiceValue());
 
@@ -181,6 +211,8 @@ public class Player {
         }
 
         return String.valueOf(player_hand);
+
     }
+
 
 }
