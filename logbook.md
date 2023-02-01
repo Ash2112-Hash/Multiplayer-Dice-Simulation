@@ -96,4 +96,7 @@
 # 17. Added ProjectLog File- 2023/01/31
     * Added the ProjectLog.java file to write messages to the log file via class implementation
     * Also added instructions to activate trace mode within 'build and execution' section of README
+
+# 18. Added new Features- 2023/01/31
+    * Added new features to README backlog to represent enchanced business logic
     
