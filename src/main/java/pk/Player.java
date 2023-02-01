@@ -1,20 +1,21 @@
+// Imports respective List and ArrayList classes for below class
 package pk;
 import java.util.ArrayList;
 import java.util.List;
-// Imports respective List and ArrayList classes for below class
+
 
 
 // The Player class is used to construct, manage and manipulate Player objects within the game
 // Consists of the major properties and actions the Player object can take
 public class Player {
-    public Dice[] current_hand = new Dice[8];
+    private final List<Dice> current_hand = new ArrayList<Dice>();
     // current_hand array represents the Dice objects in the Player object's possession
     // Array has a maximum size of 8 (8 dices)
 
-    public List<Integer> reroll_handIndex = new ArrayList<Integer>();
+    private final List<Integer> reroll_handIndex = new ArrayList<Integer>();
     // reroll_handIndex arrays is used to verify and store indices of rerolls
 
-    String name;
+    public String name;
     // name of the Player object
 
     int turn_score = 0;
@@ -34,10 +35,12 @@ public class Player {
 
     // Roll8Dice method rolls 8 dice and adds them to the player's current hand
     public void Roll8Dice(){
+        this.current_hand.clear();
+                
         for(int i = 0; i<8; i++){
             Dice individual_dice = new Dice();
             individual_dice.roll();
-            this.current_hand[i] = (individual_dice);
+            this.current_hand.add(individual_dice);
         }
     }
 
@@ -46,7 +49,7 @@ public class Player {
     // Then, Random_index is generated to pick a random dice to reroll from hand
     // reroll_handIndex array is used to verify and prevent the same dice from being rolled more than once
     public void RandRoll_Hand(){
-        int max_count = this.current_hand.length;
+        int max_count = this.current_hand.size();
         int min_count = 2;
         this.reroll_handIndex.clear();
 
@@ -55,12 +58,12 @@ public class Player {
 
         // picks a random dice based on how many dices to reroll (from RandDice_count)
         for(int i = 0; i < RandDice_count; i++){
-            int Random_index = (int)(Math.random() * current_hand.length);
+            int Random_index = (int)(Math.random() * current_hand.size());
             // generates a Random_index for the array
 
             // verifies the Dice is not a skull and is not already rolled (ie. within reroll_handIndex)
-            if((this.current_hand[Random_index].getDiceValue() != Faces.SKULL) && !(this.reroll_handIndex.contains(Random_index))){
-                this.current_hand[Random_index].roll();
+            if((this.current_hand.get(Random_index).getDiceValue() != Faces.SKULL) && !(this.reroll_handIndex.contains(Random_index))){
+                this.current_hand.get(Random_index).roll();
                 this.reroll_handIndex.add(Random_index);
 
             }
@@ -116,18 +119,18 @@ public class Player {
     }
 
 
-    /* Used for debugging purposes!
-    public void displayCurrentHand(){
-        for(int i = 0; i < this.current_hand.length; i++){
-            System.out.print(this.current_hand[i].getDiceValue());
-            if(i < (this.current_hand.length - 1)){
-                System.out.print(" ,");
+    // getCurrentHand will allow for the player's current dice hand to be returned as a String (respecting encapsulation)
+    public String getCurrentHand() {
+        StringBuilder player_hand = new StringBuilder();
+        for (int i = 0; i < this.current_hand.size(); i++) {
+            player_hand.append(this.current_hand.get(i).getDiceValue());
+
+            if (i < (this.current_hand.size() - 1)) {
+                player_hand.append(" ,");
             }
         }
-        System.out.print("\n");
 
+        return String.valueOf(player_hand);
     }
-
-     */
 
 }
