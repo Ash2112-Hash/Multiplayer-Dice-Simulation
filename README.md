@@ -59,5 +59,6 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F11 | Choose Strategy: command line arguments | D | 02/01/2023 | 02/01/2023 |
 | x   | F12 | Player Card Deck: SeaBattle cards | D | 02/01/2023 | 02/01/2023 |
 | x   | F13 | Player Strategy: SeaBattle Event | D | 02/01/2023 | 02/01/2023 |
+| x   | F14 | Player Card Deck: Monkey Business cards | P |  |  |
 | ... | ... | ... |
 

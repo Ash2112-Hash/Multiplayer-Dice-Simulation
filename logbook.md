@@ -154,3 +154,6 @@
     * Finished F12: SEABATTLE cards and Card Deck
     * Feature established within Strategy.java and Game.java
     * Updated the end date and status to Done of F13 within README backlog
+
+# 32. Added new Feature- 2023/02/01
+    * Added a new feature to README backlog to represent enchanced business logic: Monkey Business cards
