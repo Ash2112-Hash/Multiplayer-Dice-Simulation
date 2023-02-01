@@ -98,7 +98,7 @@
 
 
 # 18. Added new Features- 2023/01/31
-    * Added new features to README backlog to represent enchanced business logic
+    * Added new features to README backlog to represent enchanced business logic: Combo Strategy and CLI strategy choice
 
 
 # 19. Updated the F09 Status and Start Date and Backlog - 2023/01/31
@@ -135,3 +135,6 @@
 # 26. Finished Step 4 - 2023/02/01
     * Finished Step 4 of the project's progression!
     * Added additional documentation to all components and files of the project
+
+# 27. Added new Features- 2023/02/01
+    * Added new features to README backlog to represent enchanced business logic: SeaBattle cards and Card Deck
