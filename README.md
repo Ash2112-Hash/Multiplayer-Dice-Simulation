@@ -18,7 +18,18 @@
   * To run project using trace mode with log4j2:
     * `mvn exec:java -Dexec.args="trace_mode"`
 
+  # Running Game using CLI commands
+  * To run game by specifying player strategies, specify command for each player (seperated by a space)
+    * `mvn exec:java -Dexec.args="combo random"` (run game with player 1 using combo strategy and player 2 using random strategy)
+    * `mvn exec:java -Dexec.args="combo random trace_mode"` (run game with player 1 using combo strategy and player 2 using random strategy within trace mode)
+
 Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
+
+
+## Non-Development Tasks:
+ * Integrated log4j2 with pom.xml to log progression of game
+ * Enabled program to be run in "trace mode" and log important events to internal log file
+
 
 ## Feature Backlog
 
@@ -45,6 +56,6 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F08 | Display win percentage of each player at end | D | 01/25/2023 | 01/27/2023 |
 | x   | F09 | Score Points: Dice Combinations | D | 01/31/2023 | 01/31/2023 |
 | x   | F10 | Player Strategy: choose dice to Maximize Combos  | D | 01/31/2023 | 02/01/2023 |
-| x   | F11 | Choose Strategy: command line arguments | S | 02/01/2023 |  |
+| x   | F11 | Choose Strategy: command line arguments | D | 02/01/2023 | 02/01/2023 |
 | ... | ... | ... |
 

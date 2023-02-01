@@ -125,4 +125,9 @@
 
 # 24. Added CLManager File- 2023/02/01
     * Added the CLManager file to manage CLI input to initiate game and set player strategies
-    
+
+# 25. Finished F11 - 2023/02/01
+    * Finished F11: Choose Player Strategy via CLI
+    * Feature established within Player.java, Strategy.java and CLIManager.java
+    * Updated the end date and status to Done of F11 within README backlog
+    * Added instructions on to set game using CLI args within README build and execution section

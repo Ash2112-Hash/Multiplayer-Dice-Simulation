@@ -1,5 +1,6 @@
-// Imports respective List and ArrayList classes for below class
 package pk;
+
+// Imports Imports the required libraries/classes for Player
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,14 +17,14 @@ public class Player {
     private final List<Integer> reroll_handIndex = new ArrayList<Integer>();
     // reroll_handIndex arrays is used to verify and store indices of rerolls
 
-    public String name;
+    protected String name;
     // name of the Player object
 
-    int turn_score = 0;
-    int total_score = 0;
+    protected int turn_score = 0;
+    protected int total_score = 0;
     // integer variables to store the current turn_score and total score of player
 
-    boolean continue_roll = true;
+    private boolean continue_roll = true;
     // a boolean factor used to determine if the player should continue rolling
 
 
@@ -35,7 +36,7 @@ public class Player {
 
 
     // Roll8Dice method rolls 8 dice and adds them to the player's current hand
-    public void Roll8Dice(){
+    protected void Roll8Dice(){
         this.current_hand.clear();
                 
         for(int i = 0; i<8; i++){
@@ -49,7 +50,7 @@ public class Player {
     // First, a random number (within the range of the hand) is generated and used to roll a random number of dice
     // Then, Random_index is generated to pick a random dice to reroll from hand
     // reroll_handIndex array is used to verify and prevent the same dice from being rolled more than once
-    public void RandRoll_Hand(){
+    protected void RandRoll_Hand(){
         int max_count = this.current_hand.size();
         int min_count = 2;
         this.reroll_handIndex.clear();
@@ -85,7 +86,7 @@ public class Player {
     }
 
 
-    public void ComboRoll(){
+    protected void ComboRoll(){
         int old_frequency = 0;
         int new_frequency = 0;
         List<Faces> faces_Hand = new ArrayList<Faces>();
@@ -126,7 +127,7 @@ public class Player {
     // are3Skulls method will verify if 3 or more skulls are present within Player's current hand
     // If there are less than 3 skulls, continue_roll factor is returned as false
     // else, continue_roll factor is returned as true
-    public boolean are3Skulls(){
+    protected boolean are3Skulls(){
         int skull_count = 0;
         for(Dice single_dice: this.current_hand){
             if(single_dice.getDiceValue() == Faces.SKULL){
@@ -139,7 +140,7 @@ public class Player {
 
     // Calculate_TurnScore method will calculate the turn score of Player based on dices in current hand
     // Utilizes both Find_DiamondGoldDice and Find_ComboDice() to calculate score
-    public void Calculate_TurnScore(){
+    protected void Calculate_TurnScore(){
         int riches_score = Find_DiamondGoldDice();
         int combo_score = Find_ComboDice();
         this.turn_score = (combo_score + riches_score);
@@ -148,7 +149,7 @@ public class Player {
 
     // Find_DiamondGoldDice method will iterate through current hand to detect presence of Diamond and Gold dice
     // Each Gold and Diamond dice are worth 100 points
-    public int Find_DiamondGoldDice(){
+    private int Find_DiamondGoldDice(){
         int score = 0;
         for(Dice single_dice: this.current_hand){
             if(single_dice.getDiceValue() == Faces.DIAMOND || single_dice.getDiceValue() == Faces.GOLD){
@@ -161,7 +162,7 @@ public class Player {
 
 
     // Find_ComboDice method will iterate through current hand to detect presence of dice combinations: 3, 4, 5, 6, 7, 8
-    public int Find_ComboDice() {
+    private int Find_ComboDice() {
         int score = 0;
         List<Faces> face_hand = new ArrayList<Faces>();
         for (Dice single_dice : this.current_hand) {
@@ -191,7 +192,7 @@ public class Player {
 
     // Reset_Stats is used to reset all the player's stats to its original values
     // Primarily used to regulate the Player's actions within the Game class
-    public void Reset_Stats(){
+    protected void Reset_Stats(){
         this.turn_score = 0;
         this.total_score = 0;
         this.continue_roll = true;
@@ -199,7 +200,7 @@ public class Player {
 
 
     // getCurrentHand will allow for the player's current dice hand to be returned as a String (respecting encapsulation)
-    public String getCurrentHand() {
+    protected String getCurrentHand() {
         StringBuilder player_hand = new StringBuilder();
 
         for (int i = 0; i < this.current_hand.size(); i++) {

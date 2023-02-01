@@ -8,10 +8,30 @@ import java.util.*;
 // The Strategy class is used to set and determine the playable strategy of the player within the game
 public class Strategy {
 
+
+    // Implement_Strategy() will implement a specific strategy for the player within the game
+    // Accepts a player object and strategy as arguments
+    protected boolean Implement_Strategy(Player game_player, String strategy_choice) {
+        boolean player_factor;
+
+        if(Objects.equals(strategy_choice, "random")){
+            player_factor = Random_DiceRolls(game_player);
+        }
+
+        else{
+            player_factor = Maximize_Combos(game_player);
+        }
+
+        return player_factor;
+    }
+
+
+
     // Random_DiceRolls() is a major method responsible for the Random Roll player strategy
     // Based on a random coin toss logic, each player would either reroll or decide to end their turn by choice. In the case of 3 skulls, player will automatically end their turn
+    // The Players will randomly roll dice as their strategy
     // The decision of the turn will be returned as boolean value (used in the start_Game method)
-    public boolean Random_DiceRolls(Player player_obj){
+    private boolean Random_DiceRolls(Player player_obj){
         Random random_generator = new Random();
         int random_number = random_generator.nextInt(2) + 1;
         // generates a random integer from 1 to 2
@@ -62,15 +82,22 @@ public class Strategy {
     }
 
 
-    public boolean Maximize_Combos(Player player_obj){
+    // Maximize_Combos() is a major method responsible for the Maximize Combos player strategy
+    // Based on a random coin toss logic, each player would either reroll or decide to end their turn by choice. In the case of 3 skulls, player will automatically end their turn
+    // The Players will determine the dices to roll (if there are enough) to maximize combos as strategy
+    // The decision of the turn will be returned as boolean value (used in the start_Game method)
+    private boolean Maximize_Combos(Player player_obj){
         Random random_generator = new Random();
         int random_number = random_generator.nextInt(2) + 1;
         // generates a random integer from 1 to 2
 
         boolean round_factor;
-        boolean enough_dice = Check_RemainingDice(player_obj);;
+        // boolean factor to determine if round should be continued
 
-        // Player chooses to continue their turn (if random number is 2 and <3 skulls)
+        boolean enough_dice = Check_RemainingDice(player_obj);
+        // boolean factor to determine if there are enough dice to roll
+
+        // Player chooses to continue their turn (if random number is 2, <3 skulls and if there are enough dice)
         if(random_number==2 && !(player_obj.are3Skulls()) && enough_dice){
             //System.out.println("Now, " + player_obj.name + " randomly re-rolls their dice!");
             //System.out.print("After re-rolling, ");
@@ -91,7 +118,7 @@ public class Strategy {
                 ProjectLog.insert_log_message(player_obj.name + " ends turn!", "info");
                 player_obj.total_score += player_obj.turn_score;
 
-
+                // If player's score is less then 6000, current total score will be displayed, otherwise different statement is displayed (within Game.java)
                 if(player_obj.total_score < 6000){
                     ProjectLog.insert_log_message(player_obj.name + "'s total Score: " + player_obj.total_score + " points", "warn");
                 }
@@ -115,27 +142,27 @@ public class Strategy {
 
 
 
-    public boolean Check_RemainingDice(Player single_player){
+    // Check_RemainingDice() will determine if the player has enough dices to re-roll to maximize combos
+    // If they have enough: return true. otherwise return false
+    private boolean Check_RemainingDice(Player single_player){
         List<String> test_hand = new ArrayList(Arrays.asList(single_player.getCurrentHand().split(" ,")));
         int skull_frequency = Collections.frequency(test_hand, "SKULL");
-        System.out.println("Skull: " + skull_frequency);
+        //System.out.println("Skull: " + skull_frequency);
         boolean result = true;
 
         for(String dice_face: test_hand){
             if(!Objects.equals(dice_face, "SKULL")) {
                 int dice_frequency = Collections.frequency(test_hand, dice_face);
-                System.out.println(dice_face + ": " + dice_frequency);
+                //System.out.println(dice_face + ": " + dice_frequency);
 
                 if ((dice_frequency >= 7)){
                     result = false;
-                    System.out.println(dice_face + ": " + dice_frequency);
                     break;
                 }
 
                 else{
                     if ((dice_frequency == 6) && (skull_frequency >= 1)){
                         result = false;
-                        System.out.println(dice_face + ": " + dice_frequency);
                         break;
                     }
                 }
