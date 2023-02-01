@@ -64,7 +64,6 @@
     * Updated the F07 Status to Started(S) and startdate in backlog
 
 
-
 # 11. Finished F07 - 2023/01/25
     * Finished F07: 42 games are played during a simulation
     * Feature implemented within Game.java
@@ -97,8 +96,17 @@
     * Added the ProjectLog.java file to write messages to the log file via class implementation
     * Also added instructions to activate trace mode within 'build and execution' section of README
 
+
 # 18. Added new Features- 2023/01/31
     * Added new features to README backlog to represent enchanced business logic
 
+
 # 19. Updated the F09 Status and Start Date and Backlog - 2023/01/31
     * Updated the F09 Status to Started(S) and startdate in backlog
+
+
+# 20. Finished F09 - 2023/01/31
+    * Finished F09: Score Points through Dice combinations
+    * Feature established within Player.java
+    * Updated the end date and status to Done of F09 within README backlog
+    * Also updated configuration level of pom.xml

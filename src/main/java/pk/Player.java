@@ -1,6 +1,7 @@
 // Imports respective List and ArrayList classes for below class
 package pk;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -98,8 +99,13 @@ public class Player {
     }
 
     // Calculate_TurnScore method will calculate the turn score of Player based on dices in current hand
-    // Gold and Diamond are worth 100 points each
+    // Utilizes both Find_DiamondGoldDice and Find_ComboDice() to calculate score
     public void Calculate_TurnScore(){
+        int riches_score = Find_DiamondGoldDice();
+        int combo_score = Find_ComboDice();
+        this.turn_score = (combo_score + riches_score);
+
+        /*
         int current_score = 0;
         for(Dice single_dice: this.current_hand){
             if(single_dice.getDiceValue() == Faces.DIAMOND || single_dice.getDiceValue() == Faces.GOLD){
@@ -107,8 +113,52 @@ public class Player {
             }
         }
         this.turn_score = current_score;
-
+        */
     }
+
+
+    // Find_DiamondGoldDice method will iterate through current hand to detect presence of Diamond and Gold dice
+    // Each Gold and Diamond dice are worth 100 points
+    public int Find_DiamondGoldDice(){
+        int score = 0;
+        for(Dice single_dice: this.current_hand){
+            if(single_dice.getDiceValue() == Faces.DIAMOND || single_dice.getDiceValue() == Faces.GOLD){
+                score += 100;
+            }
+        }
+
+        return score;
+    }
+
+
+    // Find_ComboDice method will iterate through current hand to detect presence of dice combinations: 3, 4, 5, 6, 7, 8
+    public int Find_ComboDice() {
+        int score = 0;
+        List<Faces> face_hand = new ArrayList<Faces>();
+        for (Dice single_dice : this.current_hand) {
+            face_hand.add(single_dice.getDiceValue());
+        }
+        List<Faces> new_face_hand = new ArrayList<>(face_hand.stream().distinct().toList());
+        new_face_hand.remove(Faces.SKULL);
+
+        for (Faces dice_val : new_face_hand) {
+
+            int combos_num = Collections.frequency(face_hand, dice_val);
+            //System.out.println(dice_val + " :" + combos_num);
+
+            switch (combos_num) {
+                case 3 -> score += 100;
+                case 4 -> score += 400;
+                case 5 -> score += 400;
+                case 6 -> score += 1000;
+                case 7 -> score += 2000;
+                case 8 -> score += 4000;
+            }
+
+        }
+        return score;
+    }
+
 
     // Reset_Stats is used to reset all the player's stats to its original values
     // Primarily used to regulate the Player's actions within the Game class
