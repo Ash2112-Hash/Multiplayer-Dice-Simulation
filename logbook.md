@@ -146,3 +146,6 @@
     * Finished F12: SEABATTLE cards and Card Deck
     * Feature established within Card.Java using Card_Faces.java
     * Updated the end date and status to Done of F12 within README backlog
+
+# 30. Updated the F13 Status and Start Date and Backlog - 2023/02/01
+    * Updated the F13 Status to Started(S) and startdate in backlog
