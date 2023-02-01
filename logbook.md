@@ -131,3 +131,7 @@
     * Feature established within Player.java, Strategy.java and CLIManager.java
     * Updated the end date and status to Done of F11 within README backlog
     * Added instructions on to set game using CLI args within README build and execution section
+
+# 26. Finished Step 4 - 2023/02/01
+    * Finished Step 4 of the project's progression!
+    * Added additional documentation to all components and files of the project

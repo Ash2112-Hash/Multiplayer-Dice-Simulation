@@ -18,7 +18,7 @@
   * To run project using trace mode with log4j2:
     * `mvn exec:java -Dexec.args="trace_mode"`
 
-  # Running Game using CLI commands
+  ### Running Project using CLI commands
   * To run game by specifying player strategies, specify command for each player (seperated by a space)
     * `mvn exec:java -Dexec.args="combo random"` (run game with player 1 using combo strategy and player 2 using random strategy)
     * `mvn exec:java -Dexec.args="combo random trace_mode"` (run game with player 1 using combo strategy and player 2 using random strategy within trace mode)
