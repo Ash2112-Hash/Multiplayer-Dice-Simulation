@@ -122,3 +122,7 @@
 
 # 23. Updated the F11 Status and Start Date and Backlog - 2023/02/01
     * Updated the F11 Status to Started(S) and startdate in backlog
+
+# 24. Added CLManager File- 2023/02/01
+    * Added the CLManager file to manage CLI input to initiate game and set player strategies
+    
