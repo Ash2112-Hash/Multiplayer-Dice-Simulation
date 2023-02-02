@@ -1,7 +1,7 @@
 // Imports the required libraries for the PiratenKarpen class
 import pk.CLManager;
-import pk.Player;
 import pk.Game;
+import pk.Player;
 
 
 // The PiratenKarpen class is used to initiate the main game
@@ -18,10 +18,9 @@ public class PiratenKarpen {
         CLManager commandLine_analyzer = new CLManager(args);
         commandLine_analyzer.Analyze_CLArgs(PK_game);
 
+
+
         // Important Note: See Build and Execution section of README for instructions on how to execute game in CLI
     }
-
-
-
 
 }

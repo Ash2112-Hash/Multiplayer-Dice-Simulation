@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 // ProjectLog class will allow the main class: PiratenKarpen to optionally activate trace_mode and write log messages to log file based on CL argument
 public class ProjectLog {
-    public static Logger logger = LogManager.getLogger();
+    public static Logger logger = LogManager.getLogger(ProjectLog.class);
     // create a Logger object and write lines to log4j2
 
     public static boolean log_factor = false;

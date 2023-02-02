@@ -165,3 +165,7 @@
     * Finished F14: Monkey Business Cards
     * Feature established using Strategy.java, Game.java and Player.java
     * Updated the end date and status to Done of F14 within README backlog
+
+# 35. Finished Step 6 - 2023/02/01
+    * Finished Step 6 of the project's progression!
+    * Added additional documentation to all components and files of the project

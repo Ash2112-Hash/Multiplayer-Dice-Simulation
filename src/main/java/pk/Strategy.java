@@ -8,8 +8,6 @@ import java.util.*;
 // The Strategy class is used to set and determine the playable strategy of the player within the game
 public class Strategy {
 
-    private List<Card_Faces> deck = new ArrayList<Card_Faces>();
-
     protected static int num_swords = 0;
     // will store the number of cards recorded when drawing a Sea Battle card
 
@@ -140,8 +138,9 @@ public class Strategy {
 
 
 
-
-    public void CardEvent(Player player_obj){
+    // CardEvent() is a major method responsible for determining the right course of action for the card event based on the card drawn by player
+    // For example, for sea battle, it will detect the number of sabers in contrast to swords required to win
+    protected void CardEvent(Player player_obj){
         if(player_obj.drawn_card == Card_Faces.SEA_BATTLE){
             List<String> player_hand = new ArrayList(Arrays.asList(player_obj.getCurrentHand().split(" ,")));
             int saber_frequency = Collections.frequency(player_hand, "SABER");

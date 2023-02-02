@@ -2,24 +2,22 @@ package pk;
 
 import java.util.*;
 
-public class Card {
 
-    public Card_Faces card_suite;
+// The Card class is used to create and set the card deck of the game
+public class Card {
+    private Card_Faces card_suite;
 
     public static List<Card_Faces> card_Collection = new ArrayList<Card_Faces>();
+    // card_collection to represent the deck of cards
 
+    // Constructor for the card class
     public Card(Card_Faces card_val) {
         this.card_suite = card_val;
 
     }
 
-    public Card_Faces getSuite(){
-        Card_Faces Cardval_copy = this.card_suite;
-        return Cardval_copy;
-
-    }
-
-    public static List<Card_Faces> setCardDeck(){
+    // SetCardDeck to create and set the game's card deck
+    protected static List<Card_Faces> setCardDeck(){
         List<Card_Faces> deck = new ArrayList<Card_Faces>();
 
         for(int i = 0; i < 6; i++){
