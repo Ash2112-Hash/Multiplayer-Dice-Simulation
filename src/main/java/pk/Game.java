@@ -47,7 +47,6 @@ public class Game {
         // major loop used to create a specific number of games to be played: ie 42 games
         for(int actual_count = 0; actual_count < game_count; actual_count++) {
 
-            //System.out.println("#####----- Starting Game: " + (actual_count+1) + " -----#####");
             ProjectLog.insert_log_message("Starting Game: " + (actual_count+1), "info");
             set_PlayerHand(player_1);
             
@@ -57,7 +56,7 @@ public class Game {
                 do {
                     player1_continueFactor = game_strat.Implement_Strategy(player_1, player1_strategy);
                 } while (player1_continueFactor);
-                game_strat.SeaBattle(player_1);
+                game_strat.CardEvent(player_1);
 
                 if(player_1.total_score < 6000){
                     set_PlayerHand(player_2);
@@ -69,7 +68,7 @@ public class Game {
                 do {
                     player2_continueFactor = game_strat.Implement_Strategy(player_2, player2_strategy);
                 } while (player2_continueFactor);
-                game_strat.SeaBattle(player_2);
+                game_strat.CardEvent(player_2);
 
                 if(player_2.total_score < 6000){
                     set_PlayerHand(player_1);
@@ -82,7 +81,6 @@ public class Game {
 
             // Once a player surpasses score threshold (during a single game), the game is ended and all Player object statistics are reset
             End_Game();
-            //System.out.println("#####----- End of Game: " + (actual_count+1) + " -----#####" + "\n");
             ProjectLog.insert_log_message("End of Game: " + (actual_count+1),  "info");
 
             player_1.Reset_Stats();
@@ -97,17 +95,12 @@ public class Game {
     // set_PlayerHand method is used to set the hand of each player during the start of the game and the start of their new turn
     // If a player ends their turn (by choice or >=3 skulls), this method is responsible for rolling a new hand
     private void set_PlayerHand(Player player_obj){
-        //System.out.println("Now, " + player_obj.name + " rolls a new hand!");
-
-        setCardEvent(player_obj);
+                setCardEvent(player_obj);
         ProjectLog.insert_log_message((player_obj.name + " rolls a new hand!"), "trace");
         player_obj.Roll8Dice();
         ProjectLog.insert_log_message((player_obj.name + "'s new hand: ") + player_obj.getCurrentHand(), "trace");
         player_obj.Calculate_TurnScore();
         ProjectLog.insert_log_message(player_obj.name + "'s Current Score from Hand: " + player_obj.turn_score + " points", "trace");
-
-        //DisplayStats(player_obj);
-        //System.out.println("\n");
     }
 
     // set_PlayerHand method is used to draw a card and set up a card event
@@ -126,6 +119,10 @@ public class Game {
             Strategy.num_swords = sword_count;
         }
 
+        else if(player_obj.drawn_card == Card_Faces.MONKEY_BUSINESS){
+            ProjectLog.insert_log_message(player_obj.name + " has started Monkey Business", "info");
+        }
+
         // no event has been triggered
         else{
             ProjectLog.insert_log_message( "No event has been initiated!", "info");
@@ -137,15 +134,11 @@ public class Game {
     private void End_Game(){
         //System.out.println("The game has ended!");
         if(player_1.total_score >= 6000 && player_2.total_score >= 6000){
-            //System.out.println(player_1.name + " and " + player_2.name + " have both reached 6000 points!");
-            //System.out.println("Therefore, the game is a tie!");
             ProjectLog.insert_log_message(player_1.name + " and " + player_2.name + " have both reached 6000 points!", "info");
             ProjectLog.insert_log_message("The game is a tie!", "warn");
         }
 
         else if(player_1.total_score >= 6000){
-            //System.out.println(player_1.name + " has reached 6000 points!");
-            //System.out.println("Therefore, Winner is " + player_1.name);
             ProjectLog.insert_log_message(player_1.name + " has reached 6000 points!", "info");
             ProjectLog.insert_log_message("Winner is " + player_1.name, "warn");
             pk_ScoreChart.log_Wins(1, 0);
@@ -156,17 +149,7 @@ public class Game {
             ProjectLog.insert_log_message("Winner is " + player_2.name, "warn");
             pk_ScoreChart.log_Wins(0, 1);
 
-            //System.out.println(player_2.name + " has reached 6000 points!");
-            //System.out.println("Therefore, Winner is " + player_2.name);
         }
     }
-
-    /* Used for debugging purposes!
-    public void DisplayStats(Player player_obj){
-        System.out.print(player_obj.name + "'s current hand: ");
-        player_obj.displayCurrentHand();
-        System.out.println(player_obj.name + "'s Current Score from Hand: " + player_obj.turn_score + " points");
-    }
-    */
 
 }

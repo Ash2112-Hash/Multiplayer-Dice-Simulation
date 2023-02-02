@@ -26,8 +26,12 @@ public class Card {
             deck.add(Card_Faces.SEA_BATTLE);
         }
 
-        for(int y = 0; y < 29; y++){
+        for(int y = 0; y < 25; y++){
             deck.add(Card_Faces.nop);
+        }
+
+        for(int z = 0; z < 4; z++){
+            deck.add(Card_Faces.MONKEY_BUSINESS);
         }
 
         card_Collection = deck;

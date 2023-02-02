@@ -160,3 +160,8 @@
 
 # 33. Updated the F14 Status and Start Date and Backlog - 2023/02/01
     * Updated the F14 Status to Started(S) and startdate in backlog
+
+# 34. Finished F14 - 2023/02/01
+    * Finished F14: Monkey Business Cards
+    * Feature established using Strategy.java, Game.java and Player.java
+    * Updated the end date and status to Done of F14 within README backlog

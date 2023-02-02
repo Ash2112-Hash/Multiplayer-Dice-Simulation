@@ -1,6 +1,6 @@
 package pk;
 
-// Imports Imports the required libraries/classes for Player
+// Imports the required libraries/classes for Player
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -90,7 +90,11 @@ public class Player {
     }
 
 
-    protected void ComboRoll(){
+    // ComboRoll method will re-roll dices in player's hand aimed to increase combos
+    // First, it will determine the target dice value based on highest frequency and then reroll based on card
+        // If the player did'nt draw monkey_business: will reroll as normal
+        // If monkey_business was drawed: will re-roll every dice in effort to increase combinational score for both parrot and monkey
+    protected void ComboRoll(Card_Faces card){
         int old_frequency = 0;
         int new_frequency = 0;
         List<Faces> faces_Hand = new ArrayList<Faces>();
@@ -108,22 +112,30 @@ public class Player {
                     old_frequency = new_frequency;
                     target_val = dice_val;
 
-                    if(old_frequency == 6 || old_frequency == 7){
+                    if (old_frequency == 6 || old_frequency == 7) {
                         ProjectLog.insert_log_message("Check hand", "debug");
                     }
 
                 }
-
-
             }
         }
-        //System.out.println(target_val + " " + old_frequency);
 
-        for(Dice single_dice: this.current_hand){
-            if((single_dice.getDiceValue() != target_val) && (single_dice.getDiceValue() != Faces.SKULL)){
-                single_dice.roll();
+        if(card != Card_Faces.MONKEY_BUSINESS) {
+            for(Dice single_dice: this.current_hand){
+                if((single_dice.getDiceValue() != target_val) && (single_dice.getDiceValue() != Faces.SKULL)){
+                    single_dice.roll();
+                }
             }
         }
+
+        else{
+            for(Dice single_dice: this.current_hand){
+                if((single_dice.getDiceValue() != Faces.PARROT) && (single_dice.getDiceValue() != Faces.SKULL) && (single_dice.getDiceValue() != Faces.MONKEY)){
+                    single_dice.roll();
+                }
+            }
+        }
+
 
     }
 
@@ -168,6 +180,8 @@ public class Player {
     // Find_ComboDice method will iterate through current hand to detect presence of dice combinations: 3, 4, 5, 6, 7, 8
     private int Find_ComboDice() {
         int score = 0;
+
+        // generate a new list of faces of the dice to filter through and get distinct elements within current hand
         List<Faces> face_hand = new ArrayList<Faces>();
         for (Dice single_dice : this.current_hand) {
             face_hand.add(single_dice.getDiceValue());
@@ -175,21 +189,47 @@ public class Player {
         List<Faces> new_face_hand = new ArrayList<>(face_hand.stream().distinct().toList());
         new_face_hand.remove(Faces.SKULL);
 
-        for (Faces dice_val : new_face_hand) {
+        // will check through and roll dices normally if Monkey Business card is not drawn
+        if(drawn_card != Card_Faces.MONKEY_BUSINESS){
+            for (Faces dice_val : new_face_hand) {
 
-            int combos_num = Collections.frequency(face_hand, dice_val);
-            //System.out.println(dice_val + " :" + combos_num);
+                int combos_num = Collections.frequency(face_hand, dice_val);
+                //System.out.println(dice_val + " :" + combos_num);
 
-            switch (combos_num) {
-                case 3 -> score += 100;
-                case 4 -> score += 200;
-                case 5 -> score += 500;
-                case 6 -> score += 1000;
-                case 7 -> score += 2000;
-                case 8 -> score += 4000;
+                switch (combos_num) {
+                    case 3 -> score += 100;
+                    case 4 -> score += 200;
+                    case 5 -> score += 500;
+                    case 6 -> score += 1000;
+                    case 7 -> score += 2000;
+                    case 8 -> score += 4000;
+                }
+
             }
-
         }
+
+
+        //If Monkey Business card is drawn, Parrots and Monkeys count as the same
+        else{
+            for (Faces dice_val : new_face_hand) {
+
+                int parrot_num = Collections.frequency(face_hand, Faces.PARROT);
+                int monkey_num = Collections.frequency(face_hand, Faces.MONKEY);
+                int combos_num = parrot_num+monkey_num;
+                //System.out.println(dice_val + " :" + combos_num);
+
+                switch (combos_num) {
+                    case 3 -> score += 100;
+                    case 4 -> score += 200;
+                    case 5 -> score += 500;
+                    case 6 -> score += 1000;
+                    case 7 -> score += 2000;
+                    case 8 -> score += 4000;
+                }
+
+            }
+        }
+
         return score;
     }
 

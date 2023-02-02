@@ -11,6 +11,7 @@ public class Strategy {
     private List<Card_Faces> deck = new ArrayList<Card_Faces>();
 
     protected static int num_swords = 0;
+    // will store the number of cards recorded when drawing a Sea Battle card
 
 
     // Implement_Strategy() will implement a specific strategy for the player within the game
@@ -23,7 +24,7 @@ public class Strategy {
         }
 
         else{
-            player_factor = Maximize_Combos(game_player);
+            player_factor = Maximize_Combos(game_player, game_player.drawn_card);
         }
 
         return player_factor;
@@ -44,8 +45,6 @@ public class Strategy {
 
         // Player chooses to continue their turn (if random number is 2 and <3 skulls)
         if(random_number==2 && !(player_obj.are3Skulls())){
-            //System.out.println("Now, " + player_obj.name + " randomly re-rolls their dice!");
-            //System.out.print("After re-rolling, ");
             ProjectLog.insert_log_message(player_obj.name + " re-rolls their dice!", "trace");
             player_obj.RandRoll_Hand();
             ProjectLog.insert_log_message((player_obj.name + " after re-rolling: ") + player_obj.getCurrentHand(), "trace");
@@ -66,8 +65,6 @@ public class Strategy {
                     ProjectLog.insert_log_message(player_obj.name + "'s total Score: " + player_obj.total_score + " points", "warn");
                 }
 
-                //System.out.println(player_obj.name + "'s total Score: " + player_obj.total_score + " points");
-                //System.out.println("\n");
                 player_obj.turn_score = 0;
             }
 
@@ -90,7 +87,7 @@ public class Strategy {
     // Based on a random coin toss logic, each player would either reroll or decide to end their turn by choice. In the case of 3 skulls, player will automatically end their turn
     // The Players will determine the dices to roll (if there are enough) to maximize combos as strategy
     // The decision of the turn will be returned as boolean value (used in the start_Game method)
-    private boolean Maximize_Combos(Player player_obj){
+    private boolean Maximize_Combos(Player player_obj, Card_Faces card){
         Random random_generator = new Random();
         int random_number = random_generator.nextInt(2) + 1;
         // generates a random integer from 1 to 2
@@ -103,10 +100,8 @@ public class Strategy {
 
         // Player chooses to continue their turn (if random number is 2, <3 skulls and if there are enough dice)
         if(random_number==2 && !(player_obj.are3Skulls()) && enough_dice){
-            //System.out.println("Now, " + player_obj.name + " randomly re-rolls their dice!");
-            //System.out.print("After re-rolling, ");
             ProjectLog.insert_log_message(player_obj.name + " re-rolls their dice!", "trace");
-            player_obj.ComboRoll();
+            player_obj.ComboRoll(card);
             ProjectLog.insert_log_message((player_obj.name + " after re-rolling: ") + player_obj.getCurrentHand(), "trace");
             player_obj.Calculate_TurnScore();
             ProjectLog.insert_log_message(player_obj.name + "'s Current Hand Score: " + player_obj.turn_score + " points", "info");
@@ -118,7 +113,6 @@ public class Strategy {
 
             // Player will choose to end their turn by choice if <3skulls
             if(!(player_obj.are3Skulls())){
-                //System.out.println(player_obj.name + " has chosen to end their turn.");
                 ProjectLog.insert_log_message(player_obj.name + " ends turn!", "info");
                 player_obj.total_score += player_obj.turn_score;
 
@@ -147,8 +141,7 @@ public class Strategy {
 
 
 
-    public void SeaBattle(Player player_obj){
-
+    public void CardEvent(Player player_obj){
         if(player_obj.drawn_card == Card_Faces.SEA_BATTLE){
             List<String> player_hand = new ArrayList(Arrays.asList(player_obj.getCurrentHand().split(" ,")));
             int saber_frequency = Collections.frequency(player_hand, "SABER");
@@ -192,13 +185,11 @@ public class Strategy {
     private boolean Check_RemainingDice(Player single_player){
         List<String> test_hand = new ArrayList(Arrays.asList(single_player.getCurrentHand().split(" ,")));
         int skull_frequency = Collections.frequency(test_hand, "SKULL");
-        //System.out.println("Skull: " + skull_frequency);
         boolean result = true;
 
         for(String dice_face: test_hand){
             if(!Objects.equals(dice_face, "SKULL")) {
                 int dice_frequency = Collections.frequency(test_hand, dice_face);
-                //System.out.println(dice_face + ": " + dice_frequency);
 
                 if ((dice_frequency >= 7)){
                     result = false;
