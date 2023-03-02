@@ -1,9 +1,32 @@
-# A1 - Piraten Karpen
+# Pirate's Dice
 
-  * Author: < Ashwin Unnithan >
-  * Email: < unnithaa@mcmaster.ca >
+Pirates Dice is a Java-based multiplayer board game that allows players to roll dice and make bids about the total number of dice with a specific number that are being held by all players. The game involves bluffing, deception, and strategic decision-making, and can be played with friends or against computer opponents.
 
-## Build and Execution
+
+
+## Overview
+
+- Each player rolls eight dice at each turn
+- Score points by getting combinations of symbols on the dice
+- Play against another player
+- Use special event cards to gain an advantage or hinder the other player
+- Specify player strategies using command line arguments
+- Run the game in "trace mode" to log important events
+- Display win percentage of each player at the end of the game
+- Integrated log4j2 with pom.xml to log progression of game
+
+
+## Getting Started
+
+  ### Prerequisites
+
+  - Java 11
+  - Maven
+
+
+## Usage
+
+  ### Build and Execution
 
   * To clean your working directory:
     * `mvn clean`
@@ -41,6 +64,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
       * Correctly processes and returns the assoicated output relevant to the progress of the game
       * Clear of unnecessary bugs, errors and exceptions interfering with application or usage (gameplay)
    * <
+
 
 ### Backlog 
 
