@@ -1,4 +1,4 @@
-# Pirate's Dice
+# Pirate Dice
 
 Pirates Dice is a Java-based multiplayer board game that allows players to roll dice and make bids about the total number of dice with a specific number that are being held by all players. The game involves bluffing, deception, and strategic decision-making, and can be played with friends or against computer opponents.
 
