@@ -65,25 +65,18 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
       * Clear of unnecessary bugs, errors and exceptions interfering with application or usage (gameplay)
    * <
 
-
 ### Backlog 
 
-| MVP? | Id  | Feature  | Status  |  Started  | Delivered |
-| :-:  |:-:  |---       | :-:     | :-:       | :-:       |
-| x   | F01 | Roll a dice | D | 01/11/2023 | 01/13/2023 |
-| x   | F02 | Roll eight dices  | D | 01/13/2023 | 01/14/2023 |
-| x   | F03 | Player Strategy: randomly choose dice to roll and keep | D | 01/15/2023 | 01/20/2023 |
-| x   | F04 | Player's turn ends with 3 skulls | D | 01/20/2023 | 01/21/2023 |
-| x   | F05 | Score points: Diamond and Gold coins from roll | D | 01/21/2023 | 01/21/2023 |
-| x   | F06 | Two players(only) can play the game  | D | 01/21/2023 | 01/25/2023 |
-| x   | F07 | 42 games can be played during simulation  | D | 01/25/2023 | 01/25/2023 |
-| x   | F08 | Display win percentage of each player at end | D | 01/25/2023 | 01/27/2023 |
-| x   | F09 | Score Points: Dice Combinations | D | 01/31/2023 | 01/31/2023 |
-| x   | F10 | Player Strategy: choose dice to Maximize Combos  | D | 01/31/2023 | 02/01/2023 |
-| x   | F11 | Choose Strategy: command line arguments | D | 02/01/2023 | 02/01/2023 |
-| x   | F12 | Player Card Deck: SeaBattle cards | D | 02/01/2023 | 02/01/2023 |
-| x   | F13 | Player Strategy: SeaBattle Event | D | 02/01/2023 | 02/01/2023 |
-| x   | F14 | Player Card Deck: Monkey Business cards | D | 02/01/2023  | 02/01/2023 |
+| Feature  | Status  | 
+|---       | :-:     |
+Roll eight dices  | D | 
+Player Strategy: randomly choose dice to roll and keep | D |
+Player's turn ends with 3 skulls | D |
+Score points: Diamond and Gold coins from roll | D |
+Two players(only) can play the game  | D |
+Regular 42 games can be played during simulation  | D |
+Score Points: Dice Combinations | D |
+Player Strategy: choose dice to Maximize Combos  | D |
 | ... | ... | ... |
 
 
